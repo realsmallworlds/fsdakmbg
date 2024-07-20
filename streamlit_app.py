@@ -19,6 +19,9 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 
 with st.echo():
+    def get_chromedriver_path() -> str:
+        return shutil.which('chromedriver')
+
     service = Service(
             executable_path=get_chromedriver_path(),
             log_output=logpath,
