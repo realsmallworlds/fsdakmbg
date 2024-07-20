@@ -35,5 +35,6 @@ with st.echo():
     options.add_argument('--ignore-certificate-errors')
     with webdriver.Chrome(options=options, service=service) as driver:
         driver.get("https://myco.io/")
+        wait = WebDriverWait(driver, 30)
         wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/nav/div/div[3]/button'))).click()
         print("done")
