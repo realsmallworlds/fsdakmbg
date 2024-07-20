@@ -23,9 +23,7 @@ with st.echo():
         return shutil.which('chromedriver')
 
     service = Service(
-            executable_path=get_chromedriver_path(),
-            log_output=logpath,
-        )
+            executable_path=get_chromedriver_path()        )
     options = Options()
     options.add_argument("--headless")
     options.add_argument("--no-sandbox")
