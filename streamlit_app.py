@@ -44,6 +44,7 @@ with st.echo():
     j = 0
     while i < 1:
         driver = webdriver.Chrome(options=options, service=service)
+        wait = WebDriverWait(driver, 30)
         driver.get("https://myco.io/")
         wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/nav/div/div[3]/button'))).click()
         wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/div[1]/div/div[2]/span'))).click()
