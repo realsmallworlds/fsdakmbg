@@ -44,7 +44,7 @@ with st.echo():
     options.add_argument("--disable-features=NetworkService")
     options.add_argument("--window-size=1920x1080")
     options.add_argument("--disable-features=VizDisplayCompositor")
-    options.add_argument('--ignore-certificate-errors
+    options.add_argument('--ignore-certificate-errors)
     options.add_experimental_option("detach", True)
 
     extractor = URLExtract()
