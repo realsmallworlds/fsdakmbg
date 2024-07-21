@@ -44,7 +44,9 @@ with st.echo():
     options.add_argument("--disable-features=NetworkService")
     options.add_argument("--window-size=1920x1080")
     options.add_argument("--disable-features=VizDisplayCompositor")
-    options.add_argument('--ignore-certificate-errors')
+    options.add_argument('--ignore-certificate-errors
+    options.add_experimental_option("detach", True)
+
     extractor = URLExtract()
     i = 0
     j = 0
@@ -81,9 +83,7 @@ with st.echo():
         driver.get("https://myco.io/videohome?v=64e459e5a9addef12597ac3a")
         wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div[2]/div/div/div[1]/div/div[1]/div/video-js/button'))).click()
         print("done")
-        j += 1
-        if j == 5:
-            time.sleep(3700)
-            j = 0
-            subprocess.run("pkill chromium", shell=True)            
+        time.sleep(3700)
+        driver.quit()
+             
 
