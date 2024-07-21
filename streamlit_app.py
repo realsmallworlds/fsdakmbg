@@ -24,8 +24,13 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 import subprocess
-
+from tempmail import EMail
+from urlextract import URLExtract
 with st.echo():
+    
+    def random_char(y):
+        return ''.join(random.choice(string.ascii_letters) for x in range(y))
+
     def get_chromedriver_path() -> str:
         return shutil.which('chromedriver')
 
@@ -43,6 +48,9 @@ with st.echo():
     i = 0
     j = 0
     while i < 1:
+        email = EMail()
+        name = random_char(5)
+        name_2 = random_char(5)
         driver = webdriver.Chrome(options=options, service=service)
         wait = WebDriverWait(driver, 30)
         driver.get("https://myco.io/")
